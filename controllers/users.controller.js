@@ -20,7 +20,7 @@ const controllers={
     },
     create:  function (req, res) {
         res.render('./users/create.pug');
-        console.log(req.cookie)
+        console.log(req.cookies)
     },
     get: function(req, res) {
         const userID = req.params.id;
