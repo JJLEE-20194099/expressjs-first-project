@@ -33,24 +33,6 @@ const controllers={
     postCreate: function (req, res) {
         const { users } = db.data;
         req.body.id = shortid.generate();
-
-        const errors = [];
-
-        if (!req.body.name) {
-            errors.push("Name is required");
-        }
-        if (!req.body.phone) {
-            errors.push("Phone is required")
-        }
-
-        if (errors.length) {
-            res.render('users/create', {
-                errors: errors,
-                values: req.body
-            });
-            return ;
-        }
-
         users.push(req.body);
         db.write();
         res.redirect('/users')
