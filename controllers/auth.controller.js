@@ -1,6 +1,6 @@
 import db from '../db/db.js';
 
-const auth_controller = {
+const auth_controllers = {
     login: function(req, res) {
         res.render('./auth/login.pug');
     },
@@ -23,7 +23,7 @@ const auth_controller = {
             
         }
 
-        if (users.filter(checkLogin)) {
+        if (users.filter(checkLogin).length) {
             res.render('./users/index.pug', {
                 users: users
             });
@@ -40,4 +40,4 @@ const auth_controller = {
 
 
 
-export default auth_controller;
+export default auth_controllers;

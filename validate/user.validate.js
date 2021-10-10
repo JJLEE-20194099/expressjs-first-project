@@ -18,14 +18,14 @@ const validate = {
         }
         next();
     },
-    postLogin: function(req, res) {
+    postLogin: function(req, res, next) {
         const errors = [];
         if (!req.body.key) {
-            errors.push('Email or phone or username haven\'t not existed');
+            errors.push('Email or phone or username is required!');
         }
 
         if (!req.body.password) {
-            errors.push('Password is not correct');
+            errors.push('Password is required!');
         }
 
         if (errors.length) {
