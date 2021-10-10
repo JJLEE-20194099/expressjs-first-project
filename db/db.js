@@ -1,11 +1,15 @@
+import { join, dirname } from 'path'
 import { Low, JSONFile } from 'lowdb'
+import { fileURLToPath } from 'url'
 
-const db = new Low(new JSONFile('./db/db.json'))
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-db.data ||= {
-    users: []
-}
+// Use JSON file for storage
+const file = join(__dirname, 'db.json')
+const adapter = new JSONFile(file)
+const db = new Low(adapter)
 
-db.write()
+// Read data from JSON file, this will set db.data content
+await db.read()
 
 export default db;

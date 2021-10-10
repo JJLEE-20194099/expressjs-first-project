@@ -2,7 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
-import router from './routes/user.route.js';
+import userRoute from './routes/user.route.js';
+import authRoute from './routes/auth.route.js';
 
 const port = 3000
 
@@ -22,6 +23,7 @@ app.get('/', function (request, response) {
     });
 });
 
-app.use('/users', router);
+app.use('/users', userRoute);
+app.use('/auth', authRoute)
 
 app.listen(port, () => console.log(`${port}`));

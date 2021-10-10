@@ -16,8 +16,25 @@ const validate = {
             });
             return ;
         }
+        next();
+    },
+    postLogin: function(req, res) {
+        const errors = [];
+        if (!req.body.key) {
+            errors.push('Email or phone or username haven\'t not existed');
+        }
 
-        res.locals.success = true;
+        if (!req.body.password) {
+            errors.push('Password is not correct');
+        }
+
+        if (errors.length) {
+            res.render('./auth/login.pug', {
+                errors: errors,
+                values: req.body
+            });
+            return ;
+        }
         next();
     }
 

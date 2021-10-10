@@ -1,0 +1,35 @@
+extends ../layouts/common.pug
+block content 
+  .container.py-5.h-100
+    if errors
+      each error in errors
+        .alert.alert-danger= error
+    .col-xl-10
+      .card.rounded-3.text-black
+      .row.g-0
+        .col-lg-6
+        .card-body.p-md-5.mx-md-4
+        .text-center
+        img(src='https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/lotus.png' style='width: 185px;' alt='logo')
+        h4.mt-1.mb-5.pb-1 We are JJLY Shop
+        form(action="/auth/login" method="POST")
+          p Please login to your account
+          .form-outline.mb-4
+          input#form2Example11.form-control(name="key" placeholder='Phone number or email address or username', value=values?values.key:'')
+          label.form-label(for='form2Example11') Username
+          .form-outline.mb-4
+          input#form2Example22.form-control(type='password' placeholder="Password" name="password", value=values?values.password:'')
+          label.form-label(for='form2Example22') Password
+          .text-center.pt-1.mb-5.pb-1
+          button.btn.btn-primary.btn-block.fa-lg.gradient-custom-2.mb-3 Log in
+          a.text-muted(href='#!') Forgot password?
+          .d-flex.align-items-center.justify-content-center.pb-4
+
+        p.mb-0.me-2 Don&apos;t have an account?
+
+        button.btn.btn-outline-danger(type='button') Create new
+        .col-lg-6.d-flex.align-items-center.gradient-custom-2
+        .text-white.px-3.py-4.p-md-5.mx-md-4
+        h4.mb-4 We are more than just a company
+        p.small.mb-0
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
