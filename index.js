@@ -5,6 +5,9 @@ import cookieParser from 'cookie-parser';
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
 
+import authMiddleware from './middleware/auth.middleware.js';
+
+
 const port = 3000
 
 const app = express();
@@ -23,7 +26,7 @@ app.get('/', function (request, response) {
     });
 });
 
-app.use('/users', userRoute);
+app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute)
 
 app.listen(port, () => console.log(`${port}`));
