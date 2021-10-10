@@ -2,9 +2,9 @@ import db from '../db/db.js';
 import shortid from 'shortid';
 
 const controllers={
-    index: function (resquest, response) {
+    index: function (req, res) {
         const { users } = db.data;
-        response.render('./users/index.pug', {
+        res.render('./users/index.pug', {
             users: users
         });
     },
