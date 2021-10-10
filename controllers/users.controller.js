@@ -19,7 +19,8 @@ const controllers={
         });
     },
     create:  function (req, res) {
-        res.render('./users/create.pug')
+        res.render('./users/create.pug');
+        console.log(req.cookie)
     },
     get: function(req, res) {
         const userID = req.params.id;
@@ -33,6 +34,9 @@ const controllers={
     postCreate: function (req, res) {
         const { users } = db.data;
         req.body.id = shortid.generate();
+
+        console.log(res.locals);
+
         users.push(req.body);
         db.write();
         res.redirect('/users')

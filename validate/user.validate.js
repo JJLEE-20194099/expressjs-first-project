@@ -16,8 +16,11 @@ const validate = {
             });
             return ;
         }
+
+        res.locals.success = true;
         next();
     }
+
 }
 
 export default validate;
