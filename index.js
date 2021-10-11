@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
+import productRoute from './routes/product.route.js';
 
 const port = 3000
 
@@ -28,6 +29,7 @@ app.get('/', function (request, response) {
 });
 
 app.use('/users', userRoute);
-app.use('/auth', authRoute)
+app.use('/auth', authRoute);
+app.use('/products', productRoute);
 
 app.listen(port, () => console.log(`${port}`));
