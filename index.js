@@ -1,12 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
 import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
-
-import authMiddleware from './middleware/auth.middleware.js';
-
 
 const port = 3000
 
@@ -16,7 +16,8 @@ app.set('views', './views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
+
+app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(express.static('public'));
 
@@ -26,7 +27,7 @@ app.get('/', function (request, response) {
     });
 });
 
-app.use('/users', authMiddleware.requireAuth, userRoute);
+app.use('/users', userRoute);
 app.use('/auth', authRoute)
 
 app.listen(port, () => console.log(`${port}`));

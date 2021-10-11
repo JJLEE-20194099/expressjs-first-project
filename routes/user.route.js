@@ -3,8 +3,10 @@ import express from 'express';
 import controllers from '../controllers/users.controller.js';
 import validate from '../validate/user.validate.js';
 
+import auth_middleware from '../middleware/auth.middleware.js'
+
 var router = express.Router()
-router.get('/', controllers.index);
+router.get('/', auth_middleware.requireAuth, controllers.index);
 
 router.get('/search', controllers.search);
 
