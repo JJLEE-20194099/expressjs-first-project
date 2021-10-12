@@ -34,6 +34,7 @@ const controllers={
     postCreate: function (req, res) {
         const { users } = db.data;
         req.body.id = shortid.generate();
+        req.body.avatar = '/' + req.file.path.split('\\').slice(1).join('/');
         users.push(req.body);
         db.data.users = users;
         db.write();

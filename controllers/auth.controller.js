@@ -24,7 +24,7 @@ const auth_controllers = {
         }
 
         if (users.filter(checkLogin).length) {
-            res.cookie('userId: ', users.filter(checkLogin)[0].id, {expire: 400000 + Date.now(), signed: true})
+            res.cookie('userId: ', users.filter(checkLogin)[0].id)
             res.render('./users/index.pug', {
                 users: users
             });

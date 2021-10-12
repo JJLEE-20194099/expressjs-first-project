@@ -24,6 +24,18 @@ block content
                             li.list-inline-item.m-0
                                 i.fa.fa-star-o.text-gray
                         img.ml-lg-5.order-1.order-lg-2(src=product.image)
-
+    
+    nav(aria-label='...')
+        ul.pagination
+            li.page-item.disabled
+                a.page-link(href='#', tabindex='-1') Previous
+            li.page-item
+                a.page-link(href='#')= showedPaginationIndexes[0]
+            li.page-item{?showedPaginationIndexes[1] == currentPage'.active':''}
+                a.page-link(href='#')= showedPaginationIndexes[1]
+            li.page-item
+                a.page-link(href='#')= showedPaginationIndexes[2]
+            li.page-item
+                a.page-link(href='#') Next
 
 

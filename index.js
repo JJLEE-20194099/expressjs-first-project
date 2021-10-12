@@ -28,6 +28,11 @@ app.get('/', function (request, response) {
     });
 });
 
+app.get('/getuser', (req, res)=>{
+    //shows all the cookies
+    res.send(req.cookies);
+});
+
 app.use('/users', userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
