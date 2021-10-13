@@ -9,6 +9,8 @@ import userRoute from './routes/user.route.js';
 import authRoute from './routes/auth.route.js';
 import productRoute from './routes/product.route.js';
 
+import sessionMiddleware from './middleware/session.middlware.js';
+
 const port = 3000
 
 const app = express();
@@ -19,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(sessionMiddleware.signCookie)
 
 app.use(express.static('public'));
 
