@@ -22,9 +22,10 @@ const auth_controllers = {
             return true;
             
         }
-
         if (users.filter(checkLogin).length) {
-            res.cookie('userId: ', users.filter(checkLogin)[0].id)
+            res.cookie('userId', users.filter(checkLogin)[0].id, {
+                signed: true
+            })
             res.render('./users/index.pug', {
                 users: users
             });

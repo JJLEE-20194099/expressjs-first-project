@@ -5,8 +5,8 @@
       "name": "Marti Morrowe",
       "email": "mmorrowe0@yale.edu",
       "phone": "386-553-1231",
-      "username": "mmorrowe0",
-      "password": "zxkGTAGnnOzM"
+      "username": "a",
+      "password": "a"
     },
     {
       "id": "48551e61-8d24-42e5-9bb9-6c511bc650af",
@@ -1619,6 +1619,14 @@
       "email": "sbellham2r@blogger.com",
       "image": "http://dummyimage.com/201x100.png/ff4444/ffffff",
       "price": "$4.89"
+    }
+  ],
+  "sessions": [],
+  "transfers": [
+    {
+      "id": "V2gtEsSva",
+      "amount": 111111111,
+      "accountId": "10"
     }
   ]
 }

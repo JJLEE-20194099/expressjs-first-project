@@ -1,0 +1,24 @@
+extends ../layouts/common.pug
+
+block content 
+    .container.py-5.h-100
+        .col-xl-10
+            .card.rounded-3.text-black
+            .row.g-0
+                if errors
+                    each error in errors
+                        .alert.alert-danger= error
+                .text-center
+                form(action="/transfer/create" method="POST")
+                    
+                    .form-outline.mb-4
+                    input#form2Example11.form-control(name="accountId", type="text")
+                    label.form-label(for='form2Example11') Account
+                    .form-outline.mb-4
+                    input#form2Example22.form-control(type='text' name="amount")
+                    label.form-label(for='form2Example22') Amount
+                    .text-center.pt-1.mb-5.pb-1
+                    button.btn.btn-primary.btn-block.fa-lg.gradient-custom-2.mb-3 Transfer
+
+                
+            
