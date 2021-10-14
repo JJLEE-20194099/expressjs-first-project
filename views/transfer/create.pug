@@ -10,7 +10,8 @@ block content
                         .alert.alert-danger= error
                 .text-center
                 form(action="/transfer/create" method="POST")
-                    
+                    .form-outline.mb-4
+                    input#form2Example11.form-control(type="hidden" name="_csrf", value=csrfToken)
                     .form-outline.mb-4
                     input#form2Example11.form-control(name="accountId", type="text")
                     label.form-label(for='form2Example11') Account

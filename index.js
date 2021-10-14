@@ -13,7 +13,7 @@ import transferRoute from './routes/transfer.route.js';
 
 import sessionMiddleware from './middleware/session.middlware.js';
 import authMiddleware from './middleware/auth.middleware.js';
-
+import csurf from 'csurf';
 const port = 3000
 
 const app = express();
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionMiddleware.signCookie)
+app.use(csurf({ cookie: true }));
 app.get('/', function (request, response) {
     response.render('index.pug', {
         name: 'JJLee',
